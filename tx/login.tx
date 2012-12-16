@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><: $title :></title>
+  </head>
+  <body>
+    <h1>OXauth <: $title :></h1>
+
+: if( $error ) {
+    <h2><span style="background: red; border: 1px solid black; padding: 5px">
+        <: $error :>
+    </span></h2>
+: }
+    
+    <form id="login_form" method="post" > 
+      <fieldset class="main_fieldset"> 
+        <div>
+          <label class="label" for="username">Username: </label>
+          <input type="text" name="username" id="username" value="<: $username :>" />
+        </div> 
+        <div>
+          <label class="label" for="password">Password: </label>
+          <input type="password" name="password" id="password" value="" />
+        </div> 
+        <div>
+          <input type="submit" name="submit" id="submit" value="Login" />
+        </div> 
+      </fieldset> 
+    </form>
+  </body>
+</html>

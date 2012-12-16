@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><: $title :></title>
+  </head>
+  <body>
+    <h1>OXauth <: $title :></h1>
+
+    <h2>PERMISSION DENIED!</h2>
+    
+: if $user {
+    <form action="/logout" method="POST">
+      <h3>
+        Logged in as <: $user :>
+        <input type="submit" value="Log out"/>
+      </h3>
+    </form>
+: }
+
+    <ul>
+      <li><a href="/admin">Admin</a></li>
+      <li><a href="/">Index</a></li>
+    </ul>
+  </body>
+</html>

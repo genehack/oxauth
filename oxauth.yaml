@@ -1,0 +1,8 @@
+---
+connect_info:
+  - 'dbi:SQLite:dbname=oxauth.db'
+  -
+  -
+  - RaiseError: 1
+cache_dir: /tmp/oxauth
+template_root: tx
