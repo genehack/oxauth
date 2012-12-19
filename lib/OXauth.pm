@@ -50,11 +50,13 @@ has root_controller => (
 router as {
   wrap 'Plack::Middleware::Session' => ( store => literal( 'File' ));
 
+  wrap_if( sub { $_[0]->{PATH_INFO} =~ m{^/admin} },
+           'OXauth::Middleware::Auth' => ( model => 'model' ));
+
   route '/'       => 'root_controller.index';
-  route '/login'  => 'auth_controller.login';
+  route '/login'  => 'auth_controller.login' , ( name => 'login' );
   route '/logout' => 'auth_controller.logout';
   route '/admin'  => 'admin_controller.index';
-  route '/denied' => 'root_controller.deny';
 };
 
 __PACKAGE__->meta->make_immutable;

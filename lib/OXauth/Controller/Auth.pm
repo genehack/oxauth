@@ -35,8 +35,10 @@ sub login {
 sub logout {
   my( $self , $req ) = @_;
 
-  delete $req->session->{user_id}
-    if ( $req->method eq 'POST' );
+  if ( $req->method eq 'POST' ) {
+    delete $req->session->{user_id};
+    delete $req->session->{user};
+  }
 
   http_throw( SeeOther => { location => '/' });
 }
