@@ -31,9 +31,7 @@ sub call {
   }
   # otherwise redirect to the login url
   else {
-    return http_exception(Found => {
-      location => $login_url,
-    })->as_psgi;
+    return $req->new_response->redirect( $login_url );
   }
 }
 
