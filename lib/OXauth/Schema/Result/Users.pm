@@ -24,7 +24,7 @@ __PACKAGE__->add_column(
     passphrase_class => 'BlowfishCrypt' ,
     passphrase_args  => {
       salt_random => 1 ,
-      cost        => 8 ,
+      cost        => 14 ,
     },
     passphrase_check_method => 'check_passphrase' ,
   } ,
